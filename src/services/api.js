@@ -40,7 +40,7 @@ export const fetchMoviesById = async (id) => {
   return response.data;
 };
 
-export const fetchCastsById = async (id) => {
+export const fetchCastById = async (id) => {
   const response = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`,
     {

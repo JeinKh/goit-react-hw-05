@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.img {
+  width: 250px;
+  height: 300px;
+}
+
+.link {
+  text-align: center;
+  width: 300px;
+}
