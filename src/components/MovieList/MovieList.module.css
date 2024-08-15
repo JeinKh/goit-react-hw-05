@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 10px;
+  justify-content: center;
+}
+
+.img {
+  width: 300px;
+  height: 400px;
+}
+
+.title {
+  font-size: 20px;
+  color: #191919;
+}
+
+.link {
+  text-align: center;
+}

@@ -1,19 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
-
-const MovieList = (movies = []) => {
+import s from "./MovieList.module.css";
+const MovieList = ({ movies = [] }) => {
   const location = useLocation();
   return (
-    <div>
+    <div className={s.container}>
       <h2>Movies</h2>
-      <ul>
+      <ul className={s.wrapper}>
         {movies.map((movie) => (
-          <li key={movie.id}>
+          <li className={s.link} key={movie.id}>
             <Link to={`/movies/${movie.id}`} state={location}>
               {" "}
               <img
+                className={s.img}
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               />
-              <p>{movie.title}</p>
+              <p className={s.title}>{movie.title}</p>
             </Link>
           </li>
         ))}

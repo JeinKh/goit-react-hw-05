@@ -13,7 +13,7 @@ export const fetchTrendingMovies = async () => {
   return response.data.results;
 };
 
-export const fetchSearchgMovies = async (searchValue) => {
+export const fetchSearchMovies = async (searchValue) => {
   const response = await axios.get(
     "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1",
     {

@@ -6,7 +6,8 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import { fetchMoviesById } from "../../services/app";
+import { fetchMoviesById } from "../../services/api";
+import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const defaultImg =
@@ -37,25 +38,31 @@ const MovieDetailsPage = () => {
     ? (movie.vote_average * 10).toFixed(0)
     : "N/A";
   return (
-    <div>
-      <Link to={goBackRef.current}>Go back</Link>
-      {movie}
+    <div className={s.wrapper}>
+      <Link to={goBackRef.current} className={s.btn}>
+        Go back
+      </Link>
+      {/* {movie} */}
       <div>
-        <img src={posterUrl} alt={movie.title} />
+        <img className={s.img} src={posterUrl} alt={movie.title} />
         <div>
           <h2>
             {movie.title}({releaseYear})
           </h2>
           <p>User Score: {score}%</p>
           <h3>Overview</h3>
-          <p>{movie.overview}</p>
+          <p className={s.text}>{movie.overview}</p>
           <h3>Genres</h3>
           <p>{genres}</p>
         </div>
       </div>
-      <div>
-        <NavLink to="cast">Cast</NavLink>
-        <NavLink to="reviews">Reviews</NavLink>
+      <div className={s.link}>
+        <NavLink className={s.nav} to="cast">
+          Cast
+        </NavLink>
+        <NavLink className={s.nav} to="reviews">
+          Reviews
+        </NavLink>
       </div>
       <Suspense fallback={<h2>Loading...</h2>}>
         <Outlet />

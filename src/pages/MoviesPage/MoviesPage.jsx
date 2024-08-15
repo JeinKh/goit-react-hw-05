@@ -6,14 +6,23 @@ import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  const filterValue = searchParams.get("query") ?? "";
+
   const [searchParams, setSearchParams] = useSearchParams();
   const onSubmit = (newValue) => {
     setSearchParams({ query: newValue });
   };
+  const filterValue = searchParams.get("query") ?? "";
   useEffect(() => {
-    fetchSearchMovies().then((data) => setMovies(data));
-  }, []);
+    const getData = async () => {
+      try {
+        const data = await fetchSearchMovies(filterValue);
+        setMovies(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, [filterValue]);
   // const handleChangeFilter = (newValue) => {
   //   if (!newValue) {
   //     return setSearchParams({});

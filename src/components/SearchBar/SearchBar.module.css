@@ -1,0 +1,20 @@
+.wrapper {
+  padding: 0 20px;
+}
+
+.form {
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.input {
+  width: 250px;
+  height: 30px;
+  border: 2px solid #191919;
+}
+
+.btn {
+  background-color: rgba(159, 92, 221, 0.522);
+}
