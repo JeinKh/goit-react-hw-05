@@ -7,8 +7,14 @@ const MovieList = (movies = []) => {
       <h2>Movies</h2>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.movie_id}>
-            <Link to={movie_id.toString()} state={location}></Link>
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`} state={location}>
+              {" "}
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              />
+              <p>{movie.title}</p>
+            </Link>
           </li>
         ))}
       </ul>
